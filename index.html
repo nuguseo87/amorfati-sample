@@ -3,6 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="낮에는 지식과 사람이, 밤에는 술과 대화가 흐르는 회원제 살롱. 사당역 11번 출구와 이수역 6번 출구 사이, 2026년 10월 오픈.">
+<link rel="canonical" href="https://www.amorfaticafe.net/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AMOR FATI">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://www.amorfaticafe.net/">
+<meta property="og:title" content="AMOR FATI — 낮에는 지식, 밤에는 취향">
+<meta property="og:description" content="사람과 생각과 술이 만나는 카페. 사당역 11번 출구와 이수역 6번 출구 사이, 2026년 10월 그랜드 오픈.">
+<meta property="og:image" content="https://www.amorfaticafe.net/og.png">
+<meta property="og:image:secure_url" content="https://www.amorfaticafe.net/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="아모르파티 — 낮에는 지식, 밤에는 취향">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AMOR FATI — 낮에는 지식, 밤에는 취향">
+<meta name="twitter:description" content="사람과 생각과 술이 만나는 카페. 2026년 10월 그랜드 오픈.">
+<meta name="twitter:image" content="https://www.amorfaticafe.net/og.png">
+<meta name="theme-color" content="#241D12">
 <title>AMOR FATI — 사람과 생각과 술이 만나는 살롱</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,7 +145,7 @@ html[data-mode="night"] .stars{opacity:1}
 }
 @keyframes wm{from{opacity:0;transform:translateY(40px);letter-spacing:.12em}to{opacity:1;transform:none;letter-spacing:.01em}}
 .script{
-  position:relative;z-index:3;margin-top:calc(-1 * clamp(28px,4.5vw,64px));
+  position:relative;z-index:3;margin-top:calc(-1 * clamp(6px,2vw,30px));
   font-family:'Nanum Brush Script',cursive;
   font-size:clamp(34px,6.5vw,88px);color:var(--accent);
   transform:rotate(-4deg);filter:var(--glow);
@@ -305,6 +323,19 @@ html[data-mode="night"] .medal{filter:drop-shadow(0 0 22px rgba(217,166,90,.5))}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-delay:0s!important}
   ::view-transition-new(root){animation:none}
   .reveal,.stagger>*{opacity:1!important;transform:none!important}
+}
+
+@media(max-width:640px){
+  .wordmark{font-size:clamp(38px,12.5vw,60px)!important}
+  .est{letter-spacing:.18em!important;font-size:9px!important}
+  .script{font-size:clamp(24px,7vw,44px)!important;margin-top:calc(-1 * clamp(2px,1.2vw,10px))!important}
+  .hero .lede{margin-top:22px;padding:0 22px;font-size:15px}
+  .herostrip{flex-direction:column!important;gap:7px!important;padding:16px 18px!important;font-size:11px!important;letter-spacing:.05em!important}
+  header .wrap,.topbar{padding-right:8px}
+  h2{font-size:clamp(21px,5.6vw,28px)!important;word-break:keep-all}
+  .sub{word-break:keep-all}
+  .heromedal{width:76px;height:76px}
+  .seal{display:none}
 }
 </style>
 </head>
