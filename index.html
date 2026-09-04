@@ -337,6 +337,20 @@ html[data-mode="night"] .medal{filter:drop-shadow(0 0 22px rgba(217,166,90,.5))}
   .heromedal{width:76px;height:76px}
   .seal{display:none}
 }
+
+/* ── 2026-09-04 사업개요 개정 반영 ── */
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:34px}
+.chips span{font-size:13px;letter-spacing:.02em;padding:7px 14px;border:1px solid var(--line);
+  border-radius:999px;color:var(--fg-soft);white-space:nowrap;transition:color var(--t),border-color var(--t)}
+#partners{padding:96px 0}
+.orgs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+.orgs span{font-size:14px;padding:10px 18px;border:1px solid var(--line);border-radius:3px;
+  background:var(--card);white-space:nowrap;transition:background var(--t),border-color var(--t)}
+@media(max-width:640px){
+  .chips span{font-size:11.5px;padding:6px 11px}
+  .orgs span{font-size:12.5px;padding:8px 13px}
+  #partners{padding:66px 0}
+}
 </style>
 </head>
 <body>
@@ -396,7 +410,7 @@ html[data-mode="night"] .medal{filter:drop-shadow(0 0 22px rgba(217,166,90,.5))}
 <!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <div class="track" id="mqTrack">
-    <span>유언장 쓰기 · 웰다잉</span><b>∞</b><span>AI와 미래사회</span><b>∞</b><span>돈과 투자</span><b>∞</b><span>인문학</span><b>∞</b><span>북토크</span><b>∞</b><span>Wine &amp; Talk</span><b>∞</b><span>Whisky Night</span><b>∞</b><span>은퇴 후 두 번째 인생</span><b>∞</b><span>창업과 경영</span><b>∞</b><span>영화와 예술</span><b>∞</b>
+    <span>유언장 쓰기 · 웰다잉</span><b>∞</b><span>AI 시니어 · 주니어 만남</span><b>∞</b><span>AI와 미래사회</span><b>∞</b><span>탄소중립 · 탄소배출권</span><b>∞</b><span>재생에너지 · 수열냉난방</span><b>∞</b><span>ESG · CSR</span><b>∞</b><span>돈과 투자</span><b>∞</b><span>해외 비즈니스</span><b>∞</b><span>헬스케어</span><b>∞</b><span>인문학</span><b>∞</b><span>북토크</span><b>∞</b><span>문화예술 이야기</span><b>∞</b><span>Wine &amp; Talk</span><b>∞</b><span>Whisky Night</span><b>∞</b><span>은퇴 후 두 번째 인생</span><b>∞</b><span>창업과 경영</span><b>∞</b>
   </div>
 </div>
 
@@ -429,8 +443,8 @@ html[data-mode="night"] .medal{filter:drop-shadow(0 0 22px rgba(217,166,90,.5))}
       <div class="eyebrow">Morning · Meet &amp; Record</div>
       <h2 class="d">아침의 모임 — 발표하고, 기록되는 공간</h2>
       <h2 class="n">아침의 모임은 해가 뜨면 시작됩니다</h2>
-      <p class="sub d">아침 7시부터 10시까지, 열다섯 명 이내의 주제별 모임이 열립니다.
-        조찬 도시락과 함께하고, 그날의 이야기는 기록으로 남습니다.</p>
+      <p class="sub d">아침 7시부터 10시까지, 스무 명 이내의 주제별 모임이 열립니다.
+        온라인으로 미리 신청하시고, 조찬 도시락과 함께합니다. 그날의 이야기는 기록으로 남습니다.</p>
       <p class="sub n">지금은 밤의 시간. 내일 아침 7시, 첫 모임이 다시 열립니다.</p>
     </div>
     <div class="sig stagger">
@@ -454,7 +468,8 @@ html[data-mode="night"] .medal{filter:drop-shadow(0 0 22px rgba(217,166,90,.5))}
       <div class="eyebrow">Day · Learn &amp; Connect</div>
       <h2 class="d">낮의 살롱 — 아모르파티 15인 카페</h2>
       <h2 class="n">낮의 살롱은 해가 뜨면 열립니다</h2>
-      <p class="sub d">매주 새로운 주제로 열다섯 명이 모입니다. 회원이 강사가 되고, 공간이 콘텐츠를 만듭니다.</p>
+      <p class="sub d">만나고 싶은 사람을 초청해 마주 앉는 자리입니다. 섭외는 사회공헌사업단이 맡고,
+        매주 새로운 주제로 열다섯 명이 모입니다. 회원이 강사가 되고, 공간이 콘텐츠를 만듭니다.</p>
       <p class="sub n">지금은 밤의 시간. 내일 아침 10시, 지식의 낮이 다시 열립니다.</p>
     </div>
     <div class="week stagger">
@@ -464,6 +479,13 @@ html[data-mode="night"] .medal{filter:drop-shadow(0 0 22px rgba(217,166,90,.5))}
       <div class="row"><span class="dow">WINE</span><span class="name">와인 한 잔, 인생 이야기<small>낮의 이야기가 밤으로 이어지는 자리</small></span><span class="seat">10–15석</span></div>
       <div class="row"><span class="dow">NIGHT</span><span class="name latin">AMOR FATI NIGHT<small class="ui">한 주의 인연이 모이는 밤</small></span><span class="seat">15석</span></div>
     </div>
+      <div class="chips reveal">
+        <span>수다방 모임</span><span>AI 시니어 · 주니어 만남</span><span>AI 학습 · 시연 · 발표</span>
+        <span>AI 경영지원</span><span>재생에너지 · 수열냉난방</span><span>탄소배출권 · 온실가스</span>
+        <span>ESG · CSR</span><span>신규사업 · 상품 발표</span><span>해외 비즈니스</span>
+        <span>헬스케어</span><span>공익정보탐정단</span><span>문화예술 이야기</span>
+        <span>와인 · 위스키 이야기</span>
+      </div>
       <p class="sub d" style="margin-top:26px;font-size:14px;opacity:.85">
         프로그램은 매주 새롭게 구성됩니다. 위는 지금까지 열린 주제의 일부이며,
         회원이 제안한 주제로 새로운 모임이 열립니다.</p>
@@ -580,6 +602,34 @@ html[data-mode="night"] .medal{filter:drop-shadow(0 0 22px rgba(217,166,90,.5))}
   </div>
 </section>
 
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Partners &amp; Community</div>
+      <h2 class="d">함께 만드는 사람들</h2>
+      <h2 class="n">밤이 깊어도 이 이름들은 남습니다</h2>
+      <p class="sub d">아모르파티의 프로그램은 한 곳에서 나오지 않습니다.
+        아침과 낮의 모임은 사회공헌사업단과 시에스알웍스가 함께 기획하고,
+        분야별 협력 기관이 각자의 이야기를 가지고 옵니다.</p>
+      <p class="sub n">지금은 밤의 시간. 낮의 이야기는 내일 아침 다시 이어집니다.</p>
+    </div>
+    <div class="orgs reveal">
+      <span>사회공헌사업단 · CSR파트너</span>
+      <span>시에스알웍스(주)</span>
+      <span>(사)포엠아트협회</span>
+      <span>(사)한국시인협회</span>
+      <span>서초문화재단</span>
+      <span>한국시극협회</span>
+      <span>포엠아트작가협의회</span>
+      <span>(사)퀀텀AI블록체인협회</span>
+    </div>
+    <p class="sub d" style="margin-top:30px;font-size:14px;opacity:.85">
+      살롱 한쪽에는 시집과 액자, 미술품과 서예, 아트 상품이 놓입니다.
+      모임에서 만난 이야기가 그대로 물건이 되어 남습니다.</p>
+  </div>
+</section>
+
 <!-- LOCATION -->
 <section class="loc" id="loc">
   <div class="wrap">
@@ -592,9 +642,10 @@ html[data-mode="night"] .medal{filter:drop-shadow(0 0 22px rgba(217,166,90,.5))}
       <dl class="ui reveal">
         <dt>주소</dt><dd>서울 서초구 방배천로 68, 지하 1층<small>방배경찰서 인근</small></dd>
         <dt>오시는 길</dt><dd>사당역 11번 출구 도보 7분<small>이수역 6번 출구 도보 6분</small></dd>
+        <dt>아침의 모임</dt><dd>07:00 – 10:00<small>주제별 조찬 모임 · 온라인 예약</small></dd>
         <dt>낮의 살롱</dt><dd>10:00 – 17:00<small>포럼 · 북토크 · 세미나</small></dd>
-        <dt>밤의 살롱</dt><dd>18:00 – 23:00<small>Wine · Whisky · Social Night</small></dd>
-        <dt>오픈</dt><dd>2026년 10월 중순<small>9월, FOUNDERS 100 모집이 먼저 시작됩니다</small></dd>
+        <dt>밤의 살롱</dt><dd>18:00 – 24:00<small>Dinner · Wine · Whisky · Social Night</small></dd>
+        <dt>오픈</dt><dd>2026년 10월 15일 전후<small>9월, FOUNDERS 100 모집이 먼저 시작됩니다</small></dd>
       </dl>
     </div>
   </div>
