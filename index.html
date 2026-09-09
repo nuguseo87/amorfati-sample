@@ -797,6 +797,11 @@ document.getElementById('gateForm').addEventListener('submit',e=>{
             placeholder="추천해 주신 분, 관심 있는 모임 주제 등 자유롭게 적어주세요."></textarea>
         </div>
 
+        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+          <label for="ap-company">회사</label>
+          <input id="ap-company" name="company" tabindex="-1" autocomplete="off">
+        </div>
+
         <label class="agree" for="ap-agree">
           <input type="checkbox" id="ap-agree" name="agree">
           <span><b>[필수]</b> 개인정보 수집·이용에 동의합니다.</span>
@@ -881,6 +886,7 @@ const APPLY_TEL      = "02-885-2942";
 
     submit.disabled = true; submit.textContent = '보내는 중…';
     const payload = { name, phone, email, memo, plan:'FOUNDERS100',
+                      company: val('ap-company'),   // 허니팟 — 채워져 있으면 서버가 버린다
                       agreedAt:new Date().toISOString(), source:'website' };
     try{
       if(!APPLY_ENDPOINT) throw new Error('endpoint-not-configured');
