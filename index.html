@@ -373,6 +373,50 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
     margin:30px auto 0;justify-content:center}
 }
 .footmedal{margin-bottom:24px}
+
+/* ── 2026-09-09 FOUNDERS 100 단일화 + 신청 폼 ── */
+.tiers.solo{grid-template-columns:minmax(0,420px);justify-content:center}
+.tier .prnote{font-size:12px;color:var(--fg-soft);margin:-12px 0 18px}
+.tier.f .pr{color:var(--accent)}
+
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.on{display:flex}
+.modal .scrim{position:absolute;inset:0;background:rgba(12,8,4,.62);backdrop-filter:blur(3px)}
+.sheet{position:relative;z-index:1;width:100%;max-width:452px;max-height:90vh;overflow:auto;
+  background:var(--card);border:1px solid var(--accent);padding:34px 30px 28px;
+  box-shadow:0 26px 70px rgba(0,0,0,.4)}
+.sheet h3{font-family:'Marcellus',serif;font-size:21px;letter-spacing:.02em;margin-bottom:6px}
+.sheet .lead{font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--fg-soft);line-height:1.75;margin-bottom:22px}
+.fld{margin-bottom:15px}
+.fld label{display:block;font-family:'Noto Sans KR',sans-serif;font-size:12px;letter-spacing:.06em;
+  color:var(--fg-soft);margin-bottom:6px}
+.fld label i{color:var(--accent);font-style:normal}
+.fld input,.fld textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--fg);
+  padding:11px 13px;font-family:'Noto Sans KR',sans-serif;font-size:14px;border-radius:2px}
+.fld textarea{min-height:74px;resize:vertical}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 16%,transparent)}
+.fld .err{display:none;font-family:'Noto Sans KR',sans-serif;font-size:11.5px;color:#C0392B;margin-top:5px}
+.fld.bad input,.fld.bad textarea{border-color:#C0392B}
+.fld.bad .err{display:block}
+.agree{display:flex;gap:9px;align-items:flex-start;margin:18px 0 6px;
+  font-family:'Noto Sans KR',sans-serif;font-size:12.5px;color:var(--fg-soft);line-height:1.6}
+.agree input{margin-top:2px;accent-color:var(--accent);width:15px;height:15px;flex:none}
+.agree a{color:var(--accent);text-decoration:underline}
+.sheet .cta{width:100%;margin-top:18px;text-align:center;cursor:pointer}
+.sheet .cta[disabled]{opacity:.5;cursor:not-allowed}
+.sheet .close{position:absolute;top:12px;right:14px;background:none;border:0;color:var(--fg-soft);
+  font-size:22px;line-height:1;cursor:pointer;padding:6px}
+.sheet .close:hover{color:var(--accent)}
+.done{text-align:center;padding:14px 0 4px}
+.done .mk{font-size:34px;color:var(--accent);margin-bottom:12px}
+.done p{font-family:'Noto Sans KR',sans-serif;font-size:13.5px;color:var(--fg-soft);line-height:1.85}
+.privacy-box{font-family:'Noto Sans KR',sans-serif;font-size:11.5px;color:var(--fg-soft);
+  background:var(--bg);border:1px solid var(--line);padding:12px 14px;line-height:1.7;margin-top:4px}
+@media(max-width:640px){
+  .sheet{padding:30px 22px 24px}
+  .tiers.solo{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -546,25 +590,24 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
       <h2>AMOR FATI MEMBERS</h2>
       <p class="sub" style="margin:0 auto">불특정 다수가 아니라, 아모르파티와 잘 맞는 사람 100명을 먼저 모십니다.</p>
     </div>
-    <div class="tiers stagger">
-      <div class="tier">
-        <div class="tn">BASIC</div>
-        <div class="pr">월 3만 원</div>
-        <ul><li>카페 행사 할인</li><li>음료 할인</li><li>회원 전용 행사 초대</li></ul>
-      </div>
-      <div class="tier">
-        <div class="tn">PREMIUM</div>
-        <div class="pr">월 10만 원</div>
-        <ul><li>월 2회 카페 참석</li><li>와인 · 위스키 테이스팅</li><li>회원 전용 네트워킹</li><li>동반 1인 혜택</li></ul>
-      </div>
+    <div class="tiers solo stagger">
       <div class="tier f">
         <div class="badge">초기 100명 한정</div>
         <div class="tn">FOUNDERS 100</div>
-        <div class="pr">창립 멤버 <small>· 별도 안내</small></div>
-        <ul><li>글로벌 마스터 멤버십 카드</li><li>창립 멤버 전용 모임</li><li>아모르파티의 첫 번째 이야기</li></ul>
+        <div class="pr">100만 원 <small>· 2년 회원 (연 50만 원)</small></div>
+        <div class="prnote ui">이후 2년 단위로 갱신됩니다</div>
+        <ul>
+          <li>2년간 창립 멤버 자격</li>
+          <li>글로벌 마스터 멤버십 카드</li>
+          <li>월 1회 Founder Night 초대</li>
+          <li>살롱 우선 예약</li>
+          <li>회원 전용 Wine &amp; Whisky Night</li>
+          <li>동반 1인 혜택</li>
+        </ul>
       </div>
     </div>
-    <button class="cta ui">FOUNDERS 100 신청하기</button>
+    <button class="cta ui" id="applyOpen" type="button">FOUNDERS 100 신청하기</button>
+    <div class="note ui" style="margin-top:14px">신청하시면 확인 후 개별 안내드립니다. 결제는 승인 이후에 진행됩니다.</div>
   </div>
 </section>
 
@@ -719,6 +762,150 @@ document.getElementById('gateForm').addEventListener('submit',e=>{
     input.classList.remove('shake'); void input.offsetWidth; input.classList.add('shake');
   }
 });
+</script>
+
+<!-- FOUNDERS 100 신청 -->
+<div class="modal" id="applyModal" role="dialog" aria-modal="true" aria-labelledby="applyTitle">
+  <div class="scrim" data-close></div>
+  <div class="sheet">
+    <button class="close" type="button" data-close aria-label="닫기">&times;</button>
+
+    <div id="applyStep1">
+      <h3 id="applyTitle">FOUNDERS 100 신청</h3>
+      <p class="lead">초기 100명의 창립 멤버를 모십니다.<br>
+        아래 정보를 남겨주시면 <b>확인 후 개별로 안내</b>드립니다. 결제는 승인 이후에 진행됩니다.</p>
+
+      <form id="applyForm" novalidate>
+        <div class="fld" id="f-name">
+          <label for="ap-name">성함 <i>*</i></label>
+          <input id="ap-name" name="name" autocomplete="name" maxlength="40">
+          <div class="err">성함을 입력해 주세요.</div>
+        </div>
+        <div class="fld" id="f-phone">
+          <label for="ap-phone">연락처 <i>*</i></label>
+          <input id="ap-phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+          <div class="err">연락 가능한 번호를 입력해 주세요.</div>
+        </div>
+        <div class="fld" id="f-email">
+          <label for="ap-email">이메일 <i>*</i></label>
+          <input id="ap-email" name="email" type="email" autocomplete="email" maxlength="80">
+          <div class="err">이메일 형식을 확인해 주세요.</div>
+        </div>
+        <div class="fld">
+          <label for="ap-memo">한 말씀 <span style="opacity:.6">(선택)</span></label>
+          <textarea id="ap-memo" name="memo" maxlength="300"
+            placeholder="추천해 주신 분, 관심 있는 모임 주제 등 자유롭게 적어주세요."></textarea>
+        </div>
+
+        <label class="agree" for="ap-agree">
+          <input type="checkbox" id="ap-agree" name="agree">
+          <span><b>[필수]</b> 개인정보 수집·이용에 동의합니다.</span>
+        </label>
+        <div class="privacy-box">
+          수집 항목 : 성함, 연락처, 이메일, 남기신 메모<br>
+          이용 목적 : FOUNDERS 100 신청 확인 및 개별 안내<br>
+          보유 기간 : 신청 처리 후 <b>1년</b> (요청 시 즉시 파기)<br>
+          동의를 거부하실 수 있으나, 이 경우 신청 접수가 어렵습니다.
+        </div>
+        <div class="fld" id="f-agree" style="margin:0"><div class="err">개인정보 수집·이용 동의가 필요합니다.</div></div>
+
+        <button class="cta ui" type="submit" id="applySubmit">신청서 보내기</button>
+      </form>
+    </div>
+
+    <div id="applyStep2" hidden>
+      <div class="done">
+        <div class="mk">&#10003;</div>
+        <h3 style="margin-bottom:10px">신청이 접수되었습니다</h3>
+        <p id="doneMsg">담당자가 확인한 뒤 남겨주신 연락처로 개별 안내드리겠습니다.<br>
+          승인 후 결제 안내가 이어집니다.</p>
+        <button class="cta ui" type="button" data-close style="margin-top:22px">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── FOUNDERS 100 신청 ─────────────────────────────────────────
+   🔴 접수 엔드포인트. 백엔드(Cloudflare Worker + D1)가 서면 이 한 줄만 바꾼다.
+      비어 있으면 전화 접수로 안내한다 — 신청이 조용히 사라지지 않게. */
+const APPLY_ENDPOINT = "";
+const APPLY_TEL      = "02-885-2942";
+
+(function(){
+  const modal = document.getElementById('applyModal');
+  if(!modal) return;
+  const openBtn = document.getElementById('applyOpen');
+  const form    = document.getElementById('applyForm');
+  const step1   = document.getElementById('applyStep1');
+  const step2   = document.getElementById('applyStep2');
+  const doneMsg = document.getElementById('doneMsg');
+  const submit  = document.getElementById('applySubmit');
+  let lastFocus = null;
+
+  const open = () => {
+    lastFocus = document.activeElement;
+    modal.classList.add('on');
+    document.body.style.overflow = 'hidden';
+    setTimeout(()=>document.getElementById('ap-name').focus(), 40);
+  };
+  const close = () => {
+    modal.classList.remove('on');
+    document.body.style.overflow = '';
+    if(lastFocus) lastFocus.focus();
+  };
+  openBtn && openBtn.addEventListener('click', open);
+  modal.addEventListener('click', e => { if(e.target.hasAttribute('data-close')) close(); });
+  document.addEventListener('keydown', e => { if(e.key==='Escape' && modal.classList.contains('on')) close(); });
+
+  const bad = (id, on) => document.getElementById(id).classList.toggle('bad', on);
+  const val = id => document.getElementById(id).value.trim();
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const name  = val('ap-name');
+    const phone = val('ap-phone');
+    const email = val('ap-email');
+    const memo  = val('ap-memo');
+    const agree = document.getElementById('ap-agree').checked;
+
+    const eName  = name.length < 2;
+    const ePhone = phone.replace(/[^0-9]/g,'').length < 9;
+    const eEmail = !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    bad('f-name', eName); bad('f-phone', ePhone); bad('f-email', eEmail); bad('f-agree', !agree);
+    if(eName||ePhone||eEmail||!agree){
+      const first = form.querySelector('.fld.bad input');
+      first && first.focus();
+      return;
+    }
+
+    submit.disabled = true; submit.textContent = '보내는 중…';
+    const payload = { name, phone, email, memo, plan:'FOUNDERS100',
+                      agreedAt:new Date().toISOString(), source:'website' };
+    try{
+      if(!APPLY_ENDPOINT) throw new Error('endpoint-not-configured');
+      const r = await fetch(APPLY_ENDPOINT, {
+        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
+      if(!r.ok) throw new Error('http-'+r.status);
+      step1.hidden = true; step2.hidden = false;
+    }catch(err){
+      // 🔴 접수를 침묵시키지 않는다 — 반드시 연결되는 경로로 넘긴다
+      step1.hidden = true; step2.hidden = false;
+      const cfg = (err && err.message === 'endpoint-not-configured');
+      doneMsg.innerHTML =
+        (cfg ? '온라인 접수는 <b>오픈 준비 중</b>입니다.'
+             : '지금은 온라인 접수가 원활하지 않습니다.') +
+        '<br>아래 번호로 연락 주시면 <b>바로 안내</b>해 드리겠습니다.' +
+        '<br><br><a href="tel:' + APPLY_TEL.replace(/-/g,'') +
+        '" style="color:var(--accent);text-decoration:underline;font-size:16px">' +
+        APPLY_TEL + '</a>';
+      step2.querySelector('h3').textContent = '전화로 신청 부탁드립니다';
+      step2.querySelector('.mk').innerHTML = '&#9742;';
+    }finally{
+      submit.disabled = false; submit.textContent = '신청서 보내기';
+    }
+  });
+})();
 </script>
 </body>
 </html>
