@@ -1,0 +1,14 @@
+# 아모르파티 홈페이지 — Cloudflare Pages + Functions + D1
+# 🔴 고객(아모르파티) 명의 Cloudflare 계정에 배포한다.
+name = "amorfati"
+compatibility_date = "2026-09-01"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"
+database_name = "amorfati"
+database_id = "PLACEHOLDER-wrangler-d1-create-후-교체"
+
+# 시크릿은 파일에 두지 않는다
+#   wrangler pages secret put ADMIN_TOKEN
+#   wrangler pages secret put NOTIFY_WEBHOOK   (선택)
