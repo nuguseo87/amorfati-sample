@@ -417,6 +417,14 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
   .sheet{padding:30px 22px 24px}
   .tiers.solo{grid-template-columns:1fr}
 }
+
+    .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+    .fambar{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 14px;
+            margin:18px auto 14px;padding-top:16px;border-top:1px solid var(--line);max-width:520px}
+    .famlabel{flex-basis:100%;text-align:center;font-size:11px;letter-spacing:.14em;color:var(--accent)}
+    .fambar a{color:inherit;opacity:.82;text-decoration:none;border-bottom:1px solid var(--line);
+              padding-bottom:1px;font-size:13px}
+    .fambar a:hover,.fambar a:focus-visible{opacity:1;border-bottom-color:var(--accent);outline:none}
 </style>
 </head>
 <body>
@@ -534,7 +542,7 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
       <div class="eyebrow">Day · Learn &amp; Connect</div>
       <h2 class="d">낮의 살롱 — 아모르파티 15인 카페</h2>
       <h2 class="n">낮의 살롱은 해가 뜨면 열립니다</h2>
-      <p class="sub d">만나고 싶은 사람을 초청해 마주 앉는 자리입니다. 섭외는 사회공헌사업단이 맡고,
+      <p class="sub d">만나고 싶은 사람을 초청해 마주 앉는 자리입니다. 섭외는 <a href="https://nuguseo87.github.io/csrworks-preview/" target="_blank" rel="noopener noreferrer">사회공헌사업단<span class="sr">(새 창)</span></a>이 맡고,
         매주 새로운 주제로 열다섯 명이 모입니다. 회원이 강사가 되고, 공간이 콘텐츠를 만듭니다.</p>
       <p class="sub n">지금은 밤의 시간. 내일 아침 10시, 지식의 낮이 다시 열립니다.</p>
     </div>
@@ -674,7 +682,7 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
       <h2 class="d">함께 만드는 사람들</h2>
       <h2 class="n">밤이 깊어도 이 이름들은 남습니다</h2>
       <p class="sub d">아모르파티의 프로그램은 한 곳에서 나오지 않습니다.
-        아침과 낮의 모임은 사회공헌사업단과 시에스알웍스가 함께 기획하고,
+        아침과 낮의 모임은 <a href="https://nuguseo87.github.io/csrworks-preview/" target="_blank" rel="noopener noreferrer">사회공헌사업단<span class="sr">(새 창)</span></a>과 <a href="https://nuguseo87.github.io/csrworks-family-preview/csrworks/" target="_blank" rel="noopener noreferrer">시에스알웍스<span class="sr">(새 창)</span></a>가 함께 기획하고,
         분야별 협력 기관이 각자의 이야기를 가지고 옵니다.</p>
       <p class="sub n">지금은 밤의 시간. 낮의 이야기는 내일 아침 다시 이어집니다.</p>
     </div>
@@ -720,6 +728,15 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
   <div class="script">운명을 사랑하라</div>
   <div class="latin" style="letter-spacing:.3em;color:var(--accent);font-size:13px;margin-bottom:10px">AMOR FATI · DRINK &amp; TALK</div>
   사람과의 만남은 새로운 운명을 만든다<br><br>
+        <!-- 패밀리 바 — 아모르파티로 들어온 사람이 사업단으로 건너가는 자리(역방향 동선).
+             🔴 지금 주소는 검토용 미리보기다. csrworks.co.kr 정식 오픈 때 세 줄을 바꾼다. -->
+        <nav class="fambar" aria-label="사회공헌사업단 패밀리">
+          <span class="famlabel">사회공헌사업단 패밀리</span>
+          <a href="https://nuguseo87.github.io/csrworks-preview/" target="_blank" rel="noopener noreferrer">사회공헌사업단<span class="sr">(새 창)</span></a>
+          <a href="https://nuguseo87.github.io/csrworks-family-preview/csrworks/" target="_blank" rel="noopener noreferrer">시에스알웍스(주)<span class="sr">(새 창)</span></a>
+          <a href="https://nuguseo87.github.io/csrworks-family-preview/jeju/" target="_blank" rel="noopener noreferrer">제주자랑(주)<span class="sr">(새 창)</span></a>
+        </nav>
+
   © 2026 AMOR FATI. 본 페이지는 디자인 시안입니다.
 </footer>
 
