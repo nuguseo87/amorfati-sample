@@ -1,0 +1,8 @@
+# 아모르파티 — www.amorfaticafe.net
+# 관리자 화면과 API는 색인하지 않는다.
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /api/
+
+Sitemap: https://www.amorfaticafe.net/sitemap.xml

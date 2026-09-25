@@ -23,6 +23,25 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#241D12">
+<!-- 🔍 검색엔진 구조화 데이터 — 사업개요(0925)와 같은 값만 넣는다. 우편번호·좌표는 확인 전이라 비워 둔다.
+     운영시간을 고치면 페이지 본문(오시는 길)과 이 블록을 반드시 함께 고친다. -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CafeOrCoffeeShop",
+ "name":"아모르파티","alternateName":"AMOR FATI",
+ "url":"https://www.amorfaticafe.net/",
+ "image":"https://www.amorfaticafe.net/og.png",
+ "description":"낮에는 지식과 사람이, 밤에는 사람과 대화가 흐르는 회원제 카페. 아침·낮은 사회공헌사업단의 주제별 모임 공간으로 운영됩니다.",
+ "telephone":"+82-2-885-2942",
+ "address":{"@type":"PostalAddress","streetAddress":"방배천로 68 지하 1층","addressLocality":"서초구","addressRegion":"서울","addressCountry":"KR"},
+ "hasMap":"https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EC%84%9C%EC%B4%88%EA%B5%AC%20%EB%B0%A9%EB%B0%B0%EC%B2%9C%EB%A1%9C%2068",
+ "servesCuisine":["한식","일식"],
+ "foundingDate":"2026-10-15",
+ "sameAs":["http://pf.kakao.com/_MhGaX"],
+ "openingHoursSpecification":[
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"07:00","closes":"10:00","description":"아침의 모임"},
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"10:00","closes":"17:00","description":"낮의 카페"},
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"23:59","description":"저녁과 밤의 카페"}]}
+</script>
 <title>AMOR FATI — 생각과 대화로 사람과 만나는 카페</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -499,7 +518,7 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
   <div class="seal" aria-hidden="true">
     <svg class="ring" viewBox="0 0 100 100">
       <defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
-      <text><textPath href="#circ">AMOR FATI · SALON · DRINK &amp; TALK · SEOUL ·</textPath></text>
+      <text><textPath href="#circ">AMOR FATI · CAFE · DRINK &amp; TALK · SEOUL ·</textPath></text>
     </svg>
     <div class="core"><span class="medal coremedal" aria-hidden="true"></span></div>
   </div>
@@ -514,7 +533,7 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
 <!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <div class="track" id="mqTrack">
-    <span>유언장 쓰기 · 웰다잉</span><b>∞</b><span>AI 시니어 · 주니어 만남</span><b>∞</b><span>AI와 미래사회</span><b>∞</b><span>탄소중립 · 탄소배출권</span><b>∞</b><span>재생에너지 · 수열냉난방</span><b>∞</b><span>ESG · CSR</span><b>∞</b><span>돈과 투자</span><b>∞</b><span>해외 비즈니스</span><b>∞</b><span>헬스케어</span><b>∞</b><span>인문학</span><b>∞</b><span>북토크</span><b>∞</b><span>문화예술 이야기</span><b>∞</b><span>Food &amp; Talk</span><b>∞</b><span>Drink &amp; Talk</span><b>∞</b><span>은퇴 후 두 번째 인생</span><b>∞</b><span>창업과 경영</span><b>∞</b>
+    <span>유언장 쓰기 · 웰다잉</span><b>∞</b><span>AI 시니어 · 주니어 만남</span><b>∞</b><span>AI와 미래사회</span><b>∞</b><span>탄소중립 · 탄소배출권</span><b>∞</b><span>재생에너지 · 수열냉난방</span><b>∞</b><span>ESG · CSR</span><b>∞</b><span>돈과 투자</span><b>∞</b><span>해외 비즈니스</span><b>∞</b><span>헬스케어</span><b>∞</b><span>인문학</span><b>∞</b><span>북토크</span><b>∞</b><span>미술투자 이야기</span><b>∞</b><span>Food &amp; Talk</span><b>∞</b><span>Drink &amp; Talk</span><b>∞</b><span>은퇴 후 두 번째 인생</span><b>∞</b><span>창업과 경영</span><b>∞</b><span>서초포럼</span><b>∞</b><span>포엠아트 시극영화</span><b>∞</b><span>향기나는 공간정화</span><b>∞</b>
   </div>
 </div>
 
@@ -534,9 +553,9 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
 <div class="hours" id="hours">
   <div class="wrap">
     <div class="cell"><div class="t">07:00</div><div class="l d">아침의 모임이 열립니다</div><div class="l n">주제별 조찬 모임</div></div>
-    <div class="cell"><div class="t">10:00</div><div class="l d">지식의 낮이 흐릅니다</div><div class="l n">포럼 · 북토크 · 간편식</div></div>
-    <div class="cell"><div class="t">18:00</div><div class="l d">저녁 식사와 함께</div><div class="l n">도시락 · 다이닝</div></div>
-    <div class="cell"><div class="t">20:00</div><div class="l d">잔이 채워지는 시간</div><div class="l n">24시까지 이어집니다</div></div>
+    <div class="cell"><div class="t">10:00</div><div class="l d">지식의 낮이 흐릅니다</div><div class="l n">포럼 · 북토크 · 점심</div></div>
+    <div class="cell"><div class="t">18:00</div><div class="l d">저녁 식사와 함께</div><div class="l n">육회 · 연어 · 우동</div></div>
+    <div class="cell"><div class="t">20:00</div><div class="l d">밤의 대화가 시작됩니다</div><div class="l n">드링크와 대화 · 24시까지</div></div>
   </div>
 </div>
 
@@ -557,11 +576,12 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
       <div class="card"><div class="nm">촬영 · 녹음</div>
         <div class="ds">스마트 촬영장치와 녹음 설비. 모임이 그대로 콘텐츠가 됩니다.</div></div>
       <div class="card"><div class="nm">AI 기록</div>
-        <div class="ds">녹취는 문서로, 영상은 편집본으로. 남기지 않으면 흩어집니다.</div></div>
+        <div class="ds">녹취는 문서로, 영상은 편집본으로. AI가 정리한 주제 보고서를 참석자에게 드립니다.</div></div>
     </div>
     <p class="sub d" style="margin-top:26px;font-size:14px;opacity:.85">
       LED 전자현수막과 복합기를 함께 쓰실 수 있습니다.
-      발표회 · 설명회 · 소규모 세미나를 위한 공간으로 대관하실 수 있습니다.</p>
+      발표회 · 설명회 · 소규모 세미나를 위한 공간으로 대관하실 수 있습니다.
+      참석비는 모임별로 안내드리고 영수증을 발급합니다.</p>
   </div>
 </section>
 
@@ -570,25 +590,27 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
   <div class="wrap">
     <div class="reveal">
       <div class="eyebrow">Day · Learn &amp; Connect</div>
-      <h2 class="d">낮의 카페 — 아모르파티 15인 모임</h2>
+      <h2 class="d">낮의 카페 — 만나고 싶은 사람을 만나는 자리</h2>
       <h2 class="n">낮의 카페는 해가 뜨면 열립니다</h2>
       <p class="sub d">만나고 싶은 사람을 초청해 마주 앉는 자리입니다. 섭외는 <a href="https://nuguseo87.github.io/csrworks-preview/" target="_blank" rel="noopener noreferrer">사회공헌사업단<span class="sr">(새 창)</span></a>이 맡고,
-        매주 새로운 주제로 열다섯 명이 모입니다. 회원이 강사가 되고, 공간이 콘텐츠를 만듭니다.</p>
+        매주 새로운 주제로 스무 명 이내가 모입니다. 회원이 강사가 되고, 공간이 콘텐츠를 만듭니다.</p>
       <p class="sub n">지금은 밤의 시간. 내일 아침 10시, 지식의 낮이 다시 열립니다.</p>
     </div>
     <div class="week stagger">
-      <div class="row"><span class="dow">LIFE</span><span class="name">유언장 쓰기, 웰다잉<small>법무법인 제휴 · 인생을 정리하는 시간</small></span><span class="seat">10–15석</span></div>
-      <div class="row"><span class="dow">FUTURE</span><span class="name">AI가 바꾸는 우리의 미래<small>AI 활용 창작자 모임 · 시연과 학습</small></span><span class="seat">10–15석</span></div>
-      <div class="row"><span class="dow">WEALTH</span><span class="name">돈과 투자 이야기<small>금융 · 세무 · 부동산</small></span><span class="seat">10–15석</span></div>
-      <div class="row"><span class="dow">STORY</span><span class="name">시와 자서전을 영화로<small>구술 자서전 · 인생 이야기 영상제작</small></span><span class="seat">10–15석</span></div>
-      <div class="row"><span class="dow">NIGHT</span><span class="name latin">AMOR FATI NIGHT<small class="ui">한 주의 인연이 모이는 밤</small></span><span class="seat">15석</span></div>
+      <div class="row"><span class="dow">LIFE</span><span class="name">유언장 쓰기, 웰다잉<small>법무법인 제휴 · 인생을 정리하는 시간</small></span><span class="seat">20석 이내</span></div>
+      <div class="row"><span class="dow">FUTURE</span><span class="name">AI가 바꾸는 우리의 미래<small>AI 활용 창작자 모임 · 시연과 학습</small></span><span class="seat">20석 이내</span></div>
+      <div class="row"><span class="dow">WEALTH</span><span class="name">돈과 투자 이야기<small>금융 · 세무 · 미술투자</small></span><span class="seat">20석 이내</span></div>
+      <div class="row"><span class="dow">STORY</span><span class="name">시와 자서전을 영화로<small>구술 자서전 · 인생 이야기 영상제작</small></span><span class="seat">20석 이내</span></div>
+      <div class="row"><span class="dow">NIGHT</span><span class="name latin">AMOR FATI NIGHT<small class="ui">한 주의 인연이 모이는 밤</small></span><span class="seat">20석 이내</span></div>
     </div>
       <div class="chips reveal">
-        <span>수다방 모임</span><span>AI 시니어 · 주니어 만남</span><span>AI 학습 · 시연 · 발표</span>
-        <span>AI 경영지원</span><span>재생에너지 · 수열냉난방</span><span>탄소배출권 · 온실가스</span>
-        <span>ESG · CSR</span><span>신규사업 · 상품 발표</span><span>해외 비즈니스</span>
-        <span>헬스케어</span><span>공익정보탐정단</span><span>문화예술 이야기</span>
-        <span>비즈니스 발표</span>
+        <span>서초포럼 특별 커뮤니티</span><span>수다방 모임</span><span>시니어와 주니어의 만남</span>
+        <span>AI 학습 · 시연 · 발표</span><span>AI 경영지원</span><span>문화산업진흥지구</span>
+        <span>기독문인선교</span><span>포엠아트 시극영화</span><span>예술인과 함께</span>
+        <span>재생에너지 · 수열냉난방</span><span>탄소배출권 · 온실가스</span><span>ESG · CSR</span>
+        <span>향기나는 공간정화</span><span>라이브키 보안인증</span><span>혁신사업 · 상품 발표</span>
+        <span>해외 비즈니스 전략</span><span>헬스케어</span><span>공익정보탐정단</span>
+        <span>미술투자 이야기</span>
       </div>
       <p class="sub d" style="margin-top:26px;font-size:14px;opacity:.85">
         프로그램은 매주 새롭게 구성됩니다. 위는 지금까지 열린 주제의 일부이며,
@@ -604,18 +626,20 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
       <h2 class="n">밤의 카페 — 대화로 사람을 만나다</h2>
       <h2 class="d">밤의 카페는 해가 지면 열립니다</h2>
       <p class="sub n">먹고 마시는 것이 목적이 아니라, 좋은 사람과 좋은 이야기를 나누며 좋은 관계를 경험하는 곳입니다.</p>
-      <p class="sub d">저녁 6시 식사가 시작되고, 7시 반부터 분위기가 바뀝니다. 토글을 눌러 밤의 아모르파티를 미리 만나보세요.</p>
+      <p class="sub d">저녁 6시 식사가 시작되고, 8시부터 밤의 대화가 열립니다. 토글을 눌러 밤의 아모르파티를 미리 만나보세요.</p>
     </div>
     <div class="nightline stagger">
-      <div class="nrow"><span class="time">18:00 – 19:30</span><span class="name latin">FOOD &amp; TALK<small class="ui">육회 &amp; 연어 · 우동</small></span></div>
-      <div class="nrow"><span class="time">19:30 – 21:00</span><span class="name latin">DRINK &amp; TALK<small class="ui">드링크와 함께하는 대화</small></span></div>
-      <div class="nrow"><span class="time">21:00 – 23:00</span><span class="name latin">AMOR FATI SOCIAL NIGHT<small class="ui">사람과 이야기가 섞이는 시간</small></span></div>
+      <div class="nrow"><span class="time">18:00 – 20:00</span><span class="name latin">FOOD &amp; TALK<small class="ui">육회 &amp; 연어 · 우동</small></span></div>
+      <div class="nrow"><span class="time">20:00 – 22:00</span><span class="name latin">DRINK &amp; TALK<small class="ui">드링크와 함께하는 대화</small></span></div>
+      <div class="nrow"><span class="time">22:00 – 24:00</span><span class="name latin">AMOR FATI SOCIAL NIGHT<small class="ui">사람과 이야기가 섞이는 시간</small></span></div>
     </div>
     <div class="sig stagger">
       <div class="card"><div class="nm">AMOR FATI GOLD</div><div class="ds">금빛의 시그니처 드링크. 사진 한 장으로 기억되는 잔.</div></div>
       <div class="card"><div class="nm">INFINITY</div><div class="ds">∞를 닮은 잔에 담긴 시그니처. 만남은 또 다른 만남으로.</div></div>
       <div class="card"><div class="nm">AMOR FATI ZERO</div><div class="ds">무알코올 버전. 먹고 마시는 게 아니라 대화가 목적이니까.</div></div>
     </div>
+    <p class="sub n" style="margin-top:26px;font-size:14px;opacity:.85">
+      연어와 육회는 포장과 배달도 됩니다. 포장 주문에는 아모르파티 할인 쿠폰을 드립니다.</p>
   </div>
 </section>
 
@@ -635,11 +659,13 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
         <div class="prnote ui">이후 2년 단위로 갱신됩니다</div>
         <ul>
           <li>2년간 창립 멤버 자격</li>
-          <li>글로벌 마스터 멤버십 카드</li>
-          <li>월 1회 Founder Night 초대</li>
-          <li>카페 우선 예약</li>
-          <li>회원 전용 AMOR FATI NIGHT</li>
-          <li>동반 1인 혜택</li>
+          <li>글로벌 크립토마스터 아모르파티 멤버십 카드</li>
+          <li>보이스피싱 방지 라이브키 제공</li>
+          <li>여행 · 호텔 패키지 특별 할인</li>
+          <li>주제별 모임 참석비 할인</li>
+          <li>아모르파티 카페 이용 할인</li>
+          <li>주제별 모임 참석자 추천권</li>
+          <li>사업단 영업권 · 사업권 선택 제공</li>
         </ul>
       </div>
     </div>
@@ -662,42 +688,43 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
       <input type="password" id="code" placeholder="초대 코드" aria-label="초대 코드" autocomplete="off">
       <button class="cta" style="margin-top:0" type="submit">입장</button>
     </form>
-    <div class="note ui" id="gateNote">시연용 코드: 1015 (그랜드 오픈일)</div>
+    <div class="note ui" id="gateNote">초대 코드는 창립 멤버 안내와 함께 보내드립니다. 코드가 없으시면 카카오톡 채널로 문의해 주세요.</div>
 
     <div class="members" id="membersArea">
       <div class="eyebrow">This Month · October</div>
       <h2 style="font-size:24px">이달의 카페 일정</h2>
       <div class="mrow">
-        <span class="dt">10.20 MON 10:30</span>
+        <span class="dt">10.15 WED</span>
         <div>
-          <h4>유언장 쓰기, 웰다잉 — 1회차</h4>
-          <div class="who">
-            <span class="chip host">진행 · 법무법인 변호사</span>
-            <span class="chip">김O수 · 기업 임원</span><span class="chip">이O정 · 작가</span><span class="chip">박O훈 · 회계사</span><span class="chip">외 9명</span>
-          </div>
-          <div class="cap">15석 중 12석 예약 · 잔여 3석</div>
-        </div>
-      </div>
-      <div class="mrow">
-        <span class="dt">10.21 TUE 10:30</span>
-        <div>
-          <h4>AI가 바꾸는 우리의 미래 — 1회차</h4>
-          <div class="who">
-            <span class="chip host">진행 · AI 스타트업 대표</span>
-            <span class="chip">정O민 · 교수</span><span class="chip">한O래 · IT 기획자</span><span class="chip">외 6명</span>
-          </div>
-          <div class="cap">10석 중 8석 예약 · 잔여 2석</div>
-        </div>
-      </div>
-      <div class="mrow">
-        <span class="dt">10.24 FRI 18:00</span>
-        <div>
-          <h4 class="latin" style="letter-spacing:.1em">AMOR FATI NIGHT — FOUNDERS PREVIEW</h4>
+          <h4>그랜드 오픈</h4>
           <div class="who">
             <span class="chip host">호스트 · 아모르파티</span>
             <span class="chip">창립 멤버 우선 초대</span>
           </div>
-          <div class="cap">15석 · 창립 멤버 전용</div>
+          <div class="cap">시간과 순서는 창립 멤버께 먼저 안내드립니다.</div>
+        </div>
+      </div>
+      <div class="mrow">
+        <span class="dt">오픈 주</span>
+        <div>
+          <h4>주제별 모임 1회차</h4>
+          <div class="who">
+            <span class="chip">유언장 쓰기 · 웰다잉</span>
+            <span class="chip">AI가 바꾸는 우리의 미래</span>
+            <span class="chip">시와 자서전을 영화로</span>
+          </div>
+          <div class="cap">요일과 시간이 확정되는 대로 이 안쪽에 먼저 올립니다 · 모임당 20석 이내</div>
+        </div>
+      </div>
+      <div class="mrow">
+        <span class="dt">매달</span>
+        <div>
+          <h4 class="latin" style="letter-spacing:.1em">AMOR FATI NIGHT</h4>
+          <div class="who">
+            <span class="chip host">호스트 · 아모르파티</span>
+            <span class="chip">창립 멤버 전용</span>
+          </div>
+          <div class="cap">한 주의 인연이 모이는 밤 · 참석 안내는 개별로 드립니다</div>
         </div>
       </div>
       <p class="privacy">참여자는 본인이 동의한 범위에서만 표시됩니다 — 기본은 성 이니셜과 직군까지.<br>프로필 공개 여부는 회원이 직접 설정합니다.</p>
@@ -720,15 +747,22 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
     <div class="orgs reveal">
       <span>사회공헌사업단 · CSR파트너</span>
       <span>시에스알웍스(주)</span>
+      <span>(재)한국자치경제연구원</span>
+      <span>(사)퀀텀AI블록체인협회</span>
       <span>(사)포엠아트협회</span>
       <span>(사)한국시인협회</span>
       <span>서초문화재단</span>
       <span>한국시극협회</span>
       <span>포엠아트작가협의회</span>
-      <span>(사)퀀텀AI블록체인협회</span>
+      <span>데이타트랜드 · 사업 AI전환</span>
+      <span>남다플랫폼 · 라이브키 보안</span>
+      <span>코코아컴 · 향기나는 공간정화</span>
+      <span>AIT-E · 수열에너지 냉난방</span>
+      <span>뮤즈디바이스 · 헬스케어</span>
     </div>
     <p class="sub d" style="margin-top:30px;font-size:14px;opacity:.85">
-      카페 한쪽에는 시집과 액자, 미술품과 서예, 아트 상품이 놓입니다.
+      카페 한쪽에는 시집과 액자, 미술품과 서예, DTP 아트 상품과 헬스케어 제품,
+      생체보석 기억상자가 놓입니다.
       모임에서 만난 이야기가 그대로 물건이 되어 남습니다.</p>
   </div>
 </section>
@@ -757,9 +791,11 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
         <dt>주소</dt><dd>서울 서초구 방배천로 68, 지하 1층<small>방배경찰서 인근</small></dd>
         <dt>오시는 길</dt><dd>사당역 11번 출구 도보 7분<small>이수역 6번 출구 도보 6분</small></dd>
         <dt>아침의 모임</dt><dd>07:00 – 10:00<small>주제별 조찬 모임 · 온라인 예약</small></dd>
-        <dt>낮의 카페</dt><dd>10:00 – 17:00<small>포럼 · 북토크 · 세미나</small></dd>
-        <dt>밤의 카페</dt><dd>18:00 – 24:00<small>Food · Drink · Social Night</small></dd>
-        <dt>오픈</dt><dd>2026년 10월 15일 전후<small>9월, FOUNDERS 100 모집이 먼저 시작됩니다</small></dd>
+        <dt>낮의 카페</dt><dd>10:00 – 17:00<small>포럼 · 북토크 · 점심</small></dd>
+        <dt>저녁 식사</dt><dd>18:00 – 20:00<small>육회 &amp; 연어 · 우동</small></dd>
+        <dt>밤의 카페</dt><dd>20:00 – 24:00<small>드링크와 대화</small></dd>
+        <dt>문의</dt><dd><a href="tel:028852942" style="color:var(--accent)">02-885-2942</a><small>카카오톡 채널로도 문의하실 수 있습니다</small></dd>
+        <dt>오픈</dt><dd>2026년 10월 15일<small>FOUNDERS 100 모집이 진행 중입니다</small></dd>
       </dl>
     </div>
   </div>
@@ -779,7 +815,11 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
           <a href="https://nuguseo87.github.io/csrworks-family-preview/jeju/" target="_blank" rel="noopener noreferrer">제주자랑(주)<span class="sr">(새 창)</span></a>
         </nav>
 
-  © 2026 AMOR FATI. 본 페이지는 디자인 시안입니다.
+  <div class="ui" style="font-size:12px;line-height:1.9;opacity:.85;margin-bottom:8px">
+    아모르파티 · 서울 서초구 방배천로 68 지하 1층 · 문의 <a href="tel:028852942" style="color:var(--accent)">02-885-2942</a><br>
+    아침과 낮의 공간대여 운영 · 사회공헌사업단 · 시에스알웍스(주)
+  </div>
+  © 2026 AMOR FATI. All rights reserved.
 </footer>
 
 <script>
