@@ -36,7 +36,7 @@
  "description":"낮에는 지식과 사람이, 밤에는 사람과 대화가 흐르는 회원제 카페. 아침·낮은 사회공헌사업단의 주제별 모임 공간으로 운영됩니다.",
  "telephone":"+82-2-885-2942",
  "address":{"@type":"PostalAddress","streetAddress":"방배천로 68 지하 1층","addressLocality":"서초구","addressRegion":"서울","addressCountry":"KR"},
- "hasMap":"https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EC%84%9C%EC%B4%88%EA%B5%AC%20%EB%B0%A9%EB%B0%B0%EC%B2%9C%EB%A1%9C%2068",
+ "hasMap":"https://map.kakao.com/link/map/%EC%B9%B4%ED%8E%98%20%EC%95%84%EB%AA%A8%EB%A5%B4%ED%8C%8C%ED%8B%B0,37.4825932,126.9828199",
  "servesCuisine":["한식","일식"],
  "foundingDate":"2026-10-15",
  "sameAs":["http://pf.kakao.com/_MhGaX"],
@@ -448,7 +448,17 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
               padding-bottom:1px;font-size:13px}
     .fambar a:hover,.fambar a:focus-visible{opacity:1;border-bottom-color:var(--accent);outline:none}
 
-/* ── 2026-09-21 지도 자리 → 네이버 지도 카드 (NCP 키 오기 전까지) ── */
+/* ── 2026-09-30 지도 = 카카오맵 임베드. 키가 없거나 SDK 가 막히면 아래 주소 카드로 되돌아간다
+       (빈 회색 상자를 손님에게 보여주지 않는다) ── */
+.kmap{width:100%;height:clamp(260px,38vw,330px);border:1px solid var(--line);border-radius:2px;
+  overflow:hidden;background:var(--card)}
+html[data-mode="night"] .kmap{filter:saturate(.82) brightness(.82)}
+.mapgo{display:inline-flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;
+  width:100%;padding:11px 22px;border:1px solid var(--accent);color:var(--accent);
+  font-size:13.5px;letter-spacing:.08em;text-decoration:none;
+  transition:background var(--t),color var(--t)}
+.mapgo:hover{background:var(--accent);color:var(--bg)}
+/* ── 2026-09-21 지도 자리 → 주소 카드 (임베드 실패 시 대체) ── */
 .loc .map{flex-direction:column;gap:10px;text-decoration:none;cursor:pointer;padding:24px;text-align:center}
 .loc .map:hover{background:color-mix(in srgb,var(--accent) 7%,var(--card))}
 .loc .map:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -780,18 +790,22 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
       <h2>사당과 이수 사이</h2>
     </div>
     <div class="grid">
-      <!-- 🔴 지도 임베드는 네이버 클라우드(NCP) Maps Client ID 가 필요하다. 키가 오기 전까지는
-           박스 전체를 네이버 지도 검색으로 보내는 카드로 쓴다(키 불필요 · 09-21 URL 200 확인). -->
-      <a class="map ui reveal" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EC%84%9C%EC%B4%88%EA%B5%AC%20%EB%B0%A9%EB%B0%B0%EC%B2%9C%EB%A1%9C%2068" target="_blank" rel="noopener"
-         aria-label="네이버 지도에서 아모르파티 위치 보기 (새 창)">
-        <svg class="map-pin" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
-          <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z" fill="none" stroke="currentColor" stroke-width="1.4"/>
-          <circle cx="12" cy="9" r="2.6" fill="currentColor"/>
-        </svg>
-        <span class="map-addr">서울 서초구 방배천로 68</span>
-        <span class="map-sub">지하 1층 · 방배경찰서 인근</span>
-        <span class="map-btn">네이버 지도에서 보기 <span aria-hidden="true">→</span></span>
-      </a>
+      <!-- 🗺️ 카카오맵 임베드(기본) + 주소 카드(대체). 전환은 맨 아래 스크립트가 한다. -->
+      <div class="reveal">
+        <div id="kmap" class="kmap" role="img" aria-label="카페 아모르파티 위치 지도" hidden></div>
+        <a class="mapgo ui" id="mapGo" href="https://map.kakao.com/link/to/%EC%B9%B4%ED%8E%98%20%EC%95%84%EB%AA%A8%EB%A5%B4%ED%8C%8C%ED%8B%B0,37.4825932,126.9828199" target="_blank" rel="noopener noreferrer" hidden>
+          카카오맵으로 길찾기 <span aria-hidden="true">→</span><span class="sr">(새 창)</span></a>
+        <a class="map ui" id="mapCard" href="https://map.kakao.com/link/map/%EC%B9%B4%ED%8E%98%20%EC%95%84%EB%AA%A8%EB%A5%B4%ED%8C%8C%ED%8B%B0,37.4825932,126.9828199" target="_blank" rel="noopener noreferrer"
+           aria-label="카카오맵에서 카페 아모르파티 위치 보기 (새 창)">
+          <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+            <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="12" cy="9" r="2.6" fill="currentColor"/>
+          </svg>
+          <span class="map-addr">서울 서초구 방배천로 68</span>
+          <span class="map-sub">지하 1층 · 방배경찰서 인근</span>
+          <span class="map-btn">카카오맵에서 보기 <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
       <dl class="ui reveal">
         <dt>주소</dt><dd>서울 서초구 방배천로 68, 지하 1층<small>방배경찰서 인근</small></dd>
         <dt>오시는 길</dt><dd>사당역 11번 출구 도보 7분<small>이수역 6번 출구 도보 6분</small></dd>
@@ -1049,6 +1063,46 @@ const APPLY_TEL      = "02-885-2942";
       submit.disabled = false; submit.textContent = '신청서 보내기';
     }
   });
+})();
+</script>
+
+<script>
+/* 🗺️ 카카오맵 — 키 한 줄만 채우면 켜진다
+   키 = 카카오 디벨로퍼스 > 내 애플리케이션 > 앱 키 > **JavaScript 키**
+   🔴 키를 넣은 뒤 같은 앱의 「플랫폼 > Web」에 https://www.amorfaticafe.net 을 등록해야 지도가 뜬다.
+      등록을 빠뜨리면 키가 맞아도 SDK 가 거부한다 — 실패하면 아래 주소 카드로 조용히 되돌아간다. */
+const KAKAO_JS_KEY = "";
+const CAFE = { lat: 37.4825932, lng: 126.9828199, name: "카페 아모르파티" };
+
+(function(){
+  const box = document.getElementById('kmap');
+  const card = document.getElementById('mapCard');
+  const go = document.getElementById('mapGo');
+  if(!box || !card) return;
+  if(!KAKAO_JS_KEY) return;                    // 키 없으면 카드 그대로 — 빈 상자 금지
+
+  const show = () => { box.hidden = false; go.hidden = false; card.hidden = true; };
+  const fail = () => { box.hidden = true; go.hidden = true; card.hidden = false; };
+
+  const sdk = document.createElement('script');
+  sdk.src = 'https://dapi.kakao.com/v2/maps/sdk.js?appkey=' + KAKAO_JS_KEY + '&autoload=false';
+  sdk.onerror = fail;
+  sdk.onload = () => {
+    try{
+      kakao.maps.load(() => {
+        const pos = new kakao.maps.LatLng(CAFE.lat, CAFE.lng);
+        const map = new kakao.maps.Map(box, { center: pos, level: 3 });
+        new kakao.maps.Marker({ map, position: pos });
+        new kakao.maps.CustomOverlay({ map, position: pos, yAnchor: 2.2, content:
+          '<div style="padding:5px 10px;background:#241D12;color:#EFE6D6;font:600 12px/1.4 \'Noto Sans KR\',sans-serif;'
+          + 'border-radius:2px;white-space:nowrap">' + CAFE.name + '</div>' });
+        map.setZoomable(false);                // 페이지 스크롤이 지도에 먹히지 않게(모바일)
+        show();
+      });
+    }catch(e){ fail(); }
+  };
+  setTimeout(() => { if(box.hidden) fail(); }, 6000);   // 로드가 조용히 안 끝나는 경우
+  document.head.appendChild(sdk);
 })();
 </script>
 </body>
