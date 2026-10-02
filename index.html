@@ -423,13 +423,19 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
 .fld label{display:block;font-family:'Noto Sans KR',sans-serif;font-size:12px;letter-spacing:.06em;
   color:var(--fg-soft);margin-bottom:6px}
 .fld label i{color:var(--accent);font-style:normal}
-.fld input,.fld textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--fg);
+.fld input,.fld textarea,.fld select{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--fg);
   padding:11px 13px;font-family:'Noto Sans KR',sans-serif;font-size:14px;border-radius:2px}
 .fld textarea{min-height:74px;resize:vertical}
-.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--accent);
+.fld input:focus,.fld textarea:focus,.fld select:focus{outline:none;border-color:var(--accent);
   box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 16%,transparent)}
 .fld .err{display:none;font-family:'Noto Sans KR',sans-serif;font-size:11.5px;color:#C0392B;margin-top:5px}
-.fld.bad input,.fld.bad textarea{border-color:#C0392B}
+.fld.bad input,.fld.bad textarea,.fld.bad select{border-color:#C0392B}
+.fld2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:420px){.fld2{grid-template-columns:1fr;gap:0}}
+.gtel{display:inline-block;margin-top:16px;font-family:'Noto Sans KR',sans-serif;font-size:13.5px;
+  color:var(--fg-soft);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px}
+.gtel b{color:var(--accent);font-weight:600}
+.gtel:hover{color:var(--accent);border-color:var(--accent)}
 .fld.bad .err{display:block}
 .agree{display:flex;gap:9px;align-items:flex-start;margin:18px 0 6px;
   font-family:'Noto Sans KR',sans-serif;font-size:12.5px;color:var(--fg-soft);line-height:1.6}
@@ -666,10 +672,11 @@ html[data-mode="night"] .kmap{filter:saturate(.82) brightness(.82)}
       <p class="gs">저녁과 밤 시간대는 단체 모임·회식으로 공간을 통째로 쓰실 수 있습니다.<br>
         날짜와 인원을 알려주시면 메뉴와 자리를 맞춰 드립니다.</p>
       <div class="gb">
+        <a class="cta ui" id="resOpen" role="button" tabindex="0">예약 문의 남기기</a>
         <a class="cta ui kk-cta" href="https://pf.kakao.com/_MhGaX/chat" target="_blank" rel="noopener noreferrer"
            aria-label="단체 모임·회식 카카오톡으로 문의 (새 창)"><svg class="kk-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.2C6.6 3.2 2.2 6.6 2.2 10.8c0 2.7 1.8 5 4.5 6.4l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.5.1 5.4 0 9.8-3.4 9.8-7.6S17.4 3.2 12 3.2z"/></svg>카카오톡으로 문의</a>
-        <a class="cta ui" href="tel:028852942" aria-label="단체 모임·회식 전화 문의 02-885-2942">전화 02-885-2942</a>
       </div>
+      <a class="gtel ui" href="tel:028852942">바로 통화 <b>02-885-2942</b></a>
     </div>
     <p class="sub n" style="margin-top:26px;font-size:14px;opacity:.85">
       연어와 육회는 포장과 배달도 됩니다. 포장 주문에는 아모르파티 할인 쿠폰을 드립니다.</p>
@@ -935,6 +942,90 @@ document.getElementById('gateForm').addEventListener('submit',e=>{
 <a class="kk-float" href="https://pf.kakao.com/_MhGaX/chat" target="_blank" rel="noopener" aria-label="카카오톡으로 문의하기 (새 창)">
   <svg class="kk-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.2C6.6 3.2 2.2 6.6 2.2 10.8c0 2.7 1.8 5 4.5 6.4l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.5.1 5.4 0 9.8-3.4 9.8-7.6S17.4 3.2 12 3.2z"/></svg><span class="kk-label">카카오톡 문의</span>
 </a>
+<!-- 단체 · 회식 예약 문의 (10-02 단장님 지시) -->
+<div class="modal" id="resModal" role="dialog" aria-modal="true" aria-labelledby="resTitle">
+  <div class="scrim" data-close></div>
+  <div class="sheet">
+    <button class="close" type="button" data-close aria-label="닫기">&times;</button>
+
+    <div id="resStep1">
+      <h3 id="resTitle">단체 · 회식 예약 문의</h3>
+      <p class="lead">날짜와 인원을 남겨주시면 <b>확인 후 바로 연락</b>드립니다.<br>
+        메뉴와 자리는 모임 성격에 맞춰 준비해 드립니다.</p>
+
+      <form id="resForm" novalidate>
+        <div class="fld" id="r-kind-f">
+          <label for="r-kind">모임 성격 <i>*</i></label>
+          <select id="r-kind" name="kind">
+            <option value="">선택해 주세요</option>
+            <option>회식</option>
+            <option>단체 모임</option>
+            <option>세미나 · 발표</option>
+            <option>공간 대여</option>
+            <option>기타</option>
+          </select>
+          <div class="err">모임 성격을 선택해 주세요.</div>
+        </div>
+        <div class="fld2">
+          <div class="fld" id="r-date-f">
+            <label for="r-date">희망 날짜 <i>*</i></label>
+            <input id="r-date" name="date" type="date">
+            <div class="err">날짜를 선택해 주세요.</div>
+          </div>
+          <div class="fld" id="r-slot-f">
+            <label for="r-slot">시간대 <i>*</i></label>
+            <select id="r-slot" name="slot">
+              <option value="">선택</option>
+              <option>조찬 07:00–10:00</option>
+              <option>낮 10:00–17:00</option>
+              <option>저녁 18:00–20:00</option>
+              <option>밤 20:00–24:00</option>
+            </select>
+            <div class="err">시간대를 선택해 주세요.</div>
+          </div>
+        </div>
+        <div class="fld2">
+          <div class="fld" id="r-pax-f">
+            <label for="r-pax">인원 <i>*</i></label>
+            <input id="r-pax" name="pax" inputmode="numeric" maxlength="4" placeholder="예: 12">
+            <div class="err">인원을 숫자로 적어주세요.</div>
+          </div>
+          <div class="fld" id="r-name-f">
+            <label for="r-name">성함 <i>*</i></label>
+            <input id="r-name" name="name" autocomplete="name" maxlength="40">
+            <div class="err">성함을 입력해 주세요.</div>
+          </div>
+        </div>
+        <div class="fld" id="r-phone-f">
+          <label for="r-phone">연락처 <i>*</i></label>
+          <input id="r-phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000" maxlength="20">
+          <div class="err">연락 가능한 번호를 입력해 주세요.</div>
+        </div>
+        <div class="fld">
+          <label for="r-memo">요청사항 <span style="opacity:.6">(선택)</span></label>
+          <textarea id="r-memo" name="memo" maxlength="300"
+            placeholder="메뉴 선호, 주차, 전자칠판 사용 등 필요한 것을 적어주세요."></textarea>
+        </div>
+        <div class="fld" id="r-agree-f">
+          <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer;letter-spacing:0">
+            <input type="checkbox" id="r-agree" style="width:auto;margin-top:3px">
+            <span style="font-size:12.5px;line-height:1.65;color:var(--fg-soft)">
+              예약 상담을 위해 성함·연락처·예약정보 수집에 동의합니다. 상담 종료 후 파기합니다. <i style="color:var(--accent);font-style:normal">*</i></span>
+          </label>
+          <div class="err">동의가 필요합니다.</div>
+        </div>
+        <button class="cta ui" type="submit" id="resSubmit">문의 보내기</button>
+      </form>
+    </div>
+
+    <div id="resStep2" hidden style="text-align:center;padding:14px 0 6px">
+      <div class="mk" style="font-family:'Marcellus',serif;font-size:34px;color:var(--accent)">&#10003;</div>
+      <h3 style="margin-top:12px">문의가 전달되었습니다</h3>
+      <p class="lead" id="resDone" style="margin-top:10px">확인 후 남겨주신 번호로 연락드리겠습니다.</p>
+    </div>
+  </div>
+</div>
+
 <!-- FOUNDERS 100 신청 -->
 <div class="modal" id="applyModal" role="dialog" aria-modal="true" aria-labelledby="applyTitle">
   <div class="scrim" data-close></div>
@@ -1124,6 +1215,92 @@ const CAFE = { lat: 37.4825932, lng: 126.9828199, name: "카페 아모르파티"
   };
   setTimeout(() => { if(box.hidden) fail(); }, 6000);   // 로드가 조용히 안 끝나는 경우
   document.head.appendChild(sdk);
+})();
+</script>
+
+<script>
+/* ── 단체 · 회식 예약 문의 ───────────────────────────────────────────────
+   접수 엔드포인트. 구글 Apps Script 웹앱 URL 을 여기 한 줄만 넣으면 켜진다.
+   (제작 절차 = 03_우리작업물/예약알림_AppsScript_261002/README.md)
+   🔴 비어 있으면 「전화·카카오톡으로 연락 주세요」로 안내한다 — 문의가 조용히 사라지지 않게. */
+const RESERVE_ENDPOINT = "";
+const RESERVE_TEL      = "02-885-2942";
+
+(function(){
+  const modal = document.getElementById('resModal');
+  const openBtn = document.getElementById('resOpen');
+  if(!modal || !openBtn) return;
+  const form = document.getElementById('resForm');
+  const step1 = document.getElementById('resStep1');
+  const step2 = document.getElementById('resStep2');
+  const done  = document.getElementById('resDone');
+  const submit= document.getElementById('resSubmit');
+  let lastFocus = null;
+
+  const open = () => {
+    lastFocus = document.activeElement;
+    modal.classList.add('on');
+    document.body.style.overflow = 'hidden';
+    const d = document.getElementById('r-date');
+    if(d && !d.min){ const t=new Date(); t.setMinutes(t.getMinutes()-t.getTimezoneOffset()); d.min=t.toISOString().slice(0,10); }
+    setTimeout(()=>document.getElementById('r-kind').focus(), 40);
+  };
+  const close = () => {
+    modal.classList.remove('on');
+    document.body.style.overflow = '';
+    if(lastFocus) lastFocus.focus();
+  };
+  openBtn.addEventListener('click', open);
+  openBtn.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(); } });
+  modal.addEventListener('click', e => { if(e.target.hasAttribute('data-close')) close(); });
+  document.addEventListener('keydown', e => { if(e.key==='Escape' && modal.classList.contains('on')) close(); });
+
+  const val = id => (document.getElementById(id).value||'').trim();
+  const bad = (id, on) => document.getElementById(id).classList.toggle('bad', on);
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const kind=val('r-kind'), date=val('r-date'), slot=val('r-slot'),
+          pax=val('r-pax'), name=val('r-name'), phone=val('r-phone'), memo=val('r-memo');
+    const agree = document.getElementById('r-agree').checked;
+    const eKind=!kind, eDate=!date, eSlot=!slot,
+          ePax=!/^[0-9]{1,4}$/.test(pax) || Number(pax)<1,
+          eName=name.length<2,
+          ePhone=phone.replace(/[^0-9]/g,'').length<9;
+    bad('r-kind-f',eKind); bad('r-date-f',eDate); bad('r-slot-f',eSlot); bad('r-pax-f',ePax);
+    bad('r-name-f',eName); bad('r-phone-f',ePhone); bad('r-agree-f',!agree);
+    if(eKind||eDate||eSlot||ePax||eName||ePhone||!agree){
+      const first = form.querySelector('.fld.bad input,.fld.bad select');
+      if(first) first.focus();
+      return;
+    }
+
+    submit.disabled = true; submit.textContent = '보내는 중…';
+    const payload = { kind, date, slot, pax, name, phone, memo,
+                      company: '',                      /* 허니팟 자리 — 서버가 비었는지만 본다 */
+                      agreedAt: new Date().toISOString(), source: 'website-reserve' };
+    try{
+      if(!RESERVE_ENDPOINT) throw new Error('endpoint-not-configured');
+      /* Apps Script 는 preflight 를 싫어한다 → text/plain 으로 보낸다(단순 요청) */
+      const r = await fetch(RESERVE_ENDPOINT, { method:'POST',
+        headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload) });
+      if(!r.ok) throw new Error('http-'+r.status);
+      step1.hidden = true; step2.hidden = false;
+    }catch(err){
+      /* 🔴 접수를 침묵시키지 않는다 — 반드시 연결되는 경로로 넘긴다 */
+      const m = (err && err.message) || '';
+      const cfg = m === 'endpoint-not-configured' || m === 'http-404' || m === 'http-405';
+      step1.hidden = true; step2.hidden = false;
+      step2.querySelector('h3').textContent = cfg ? '전화로 연락 주세요' : '지금은 접수가 원활하지 않습니다';
+      step2.querySelector('.mk').innerHTML = '&#9742;';
+      done.innerHTML = (cfg ? '온라인 접수는 <b>준비 중</b>입니다.' : '잠시 뒤 다시 시도해 주세요.')
+        + '<br>아래 번호나 카카오톡 채널로 연락 주시면 <b>바로 안내</b>해 드리겠습니다.'
+        + '<br><br><a href="tel:' + RESERVE_TEL.replace(/-/g,'') + '" style="color:var(--accent);text-decoration:underline;font-size:16px">'
+        + RESERVE_TEL + '</a>';
+    }finally{
+      submit.disabled = false; submit.textContent = '문의 보내기';
+    }
+  });
 })();
 </script>
 </body>
