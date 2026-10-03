@@ -35,7 +35,8 @@
  "image":"https://www.amorfaticafe.net/og.png",
  "description":"낮에는 지식과 사람이, 밤에는 사람과 대화가 흐르는 회원제 카페. 아침·낮은 사회공헌사업단의 주제별 모임 공간으로 운영됩니다.",
  "telephone":"+82-2-885-2942",
- "address":{"@type":"PostalAddress","streetAddress":"방배천로 68 지하 1층","addressLocality":"서초구","addressRegion":"서울","addressCountry":"KR"},
+ "address":{"@type":"PostalAddress","streetAddress":"방배천로 68 지하 1층","addressLocality":"서초구","addressRegion":"서울","postalCode":"06677","addressCountry":"KR"},
+ "geo":{"@type":"GeoCoordinates","latitude":37.4825932,"longitude":126.9828199},
  "hasMap":"https://map.kakao.com/link/map/%EC%B9%B4%ED%8E%98%20%EC%95%84%EB%AA%A8%EB%A5%B4%ED%8C%8C%ED%8B%B0,37.4825932,126.9828199",
  "servesCuisine":["한식","일식"],
  "foundingDate":"2026-10-15",
@@ -463,6 +464,9 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
     .fambar a{color:inherit;opacity:.82;text-decoration:none;border-bottom:1px solid var(--line);
               padding-bottom:1px;font-size:13px}
     .fambar a:hover,.fambar a:focus-visible{opacity:1;border-bottom-color:var(--accent);outline:none}
+
+/* 🔴 hidden 속성이 .loc .map 의 display 규칙에 눌려 무시된다 — 지도와 카드가 같이 보였다 */
+[hidden]{display:none !important}
 
 /* ── 2026-09-30 지도 = 카카오맵 임베드. 키가 없거나 SDK 가 막히면 아래 주소 카드로 되돌아간다
        (빈 회색 상자를 손님에게 보여주지 않는다) ── */
