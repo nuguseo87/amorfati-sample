@@ -6,14 +6,14 @@
 <!-- 🔴 검색엔진 소유확인 태그 — 지우면 서치콘솔에서 사이트가 통째로 빠진다. 확인 뒤에도 남겨 둔다. -->
 <meta name="google-site-verification" content="eLwgqwHu62ZHJeMqqJ86XH4oUph6pW2Y-EJywFzTAFY">
 <meta name="naver-site-verification" content="b687103af8ca98ed924fc17f6206654094f35b29" />
-<meta name="description" content="낮에는 지식과 사람이, 밤에는 사람과 대화가 흐르는 회원제 카페. 사당역 11번 출구와 이수역 6번 출구 사이, 2026년 10월 15일 오픈.">
+<meta name="description" content="낮에는 지식과 사람이, 밤에는 사람과 대화가 흐르는 회원제 카페. 사당역 11번 출구와 이수역 6번 출구 사이, 2026년 10월 21일 오픈.">
 <link rel="canonical" href="https://www.amorfaticafe.net/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AMOR FATI">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://www.amorfaticafe.net/">
 <meta property="og:title" content="AMOR FATI — 낮에는 지식, 밤에는 대화">
-<meta property="og:description" content="생각과 대화로 사람과 만나는 카페. 사당역 11번 출구와 이수역 6번 출구 사이, 2026년 10월 15일 그랜드 오픈.">
+<meta property="og:description" content="생각과 대화로 사람과 만나는 카페. 사당역 11번 출구와 이수역 6번 출구 사이, 2026년 10월 21일 그랜드 오픈.">
 <meta property="og:image" content="https://www.amorfaticafe.net/og.png">
 <meta property="og:image:secure_url" content="https://www.amorfaticafe.net/og.png">
 <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="아모르파티 — 낮에는 지식, 밤에는 대화">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AMOR FATI — 낮에는 지식, 밤에는 대화">
-<meta name="twitter:description" content="생각과 대화로 사람과 만나는 카페. 2026년 10월 15일 그랜드 오픈.">
+<meta name="twitter:description" content="생각과 대화로 사람과 만나는 카페. 2026년 10월 21일 그랜드 오픈.">
 <meta name="twitter:image" content="https://www.amorfaticafe.net/og.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -559,7 +559,7 @@ html[data-mode="night"] .kmap{filter:saturate(.82) brightness(.82)}
   <div class="herostrip">
     <span>사당역 11번 출구 <b>도보 7분</b></span>
     <span>이수역 6번 출구 <b>도보 6분</b></span>
-    <span>2026년 10월 15일 <b>그랜드 오픈</b></span>
+    <span>2026년 10월 21일 <b>그랜드 오픈</b></span>
   </div>
 </section>
 
@@ -740,7 +740,7 @@ html[data-mode="night"] .kmap{filter:saturate(.82) brightness(.82)}
       <div class="eyebrow">This Month · October</div>
       <h2 style="font-size:24px">이달의 카페 일정</h2>
       <div class="mrow">
-        <span class="dt">10.15 WED</span>
+        <span class="dt">10.21 WED</span>
         <div>
           <h4>그랜드 오픈</h4>
           <div class="who">
@@ -846,7 +846,7 @@ html[data-mode="night"] .kmap{filter:saturate(.82) brightness(.82)}
         <dt>저녁 식사</dt><dd>18:00 – 20:00<small>단체 모임 · 회식 · 육회 &amp; 연어</small></dd>
         <dt>밤의 카페</dt><dd>20:00 – 24:00<small>드링크와 대화 · 단체 모임</small></dd>
         <dt>문의</dt><dd><a href="tel:028852942" style="color:var(--accent)">02-885-2942</a><small>카카오톡 채널로도 문의하실 수 있습니다</small></dd>
-        <dt>오픈</dt><dd>2026년 10월 15일<small>FOUNDERS 100 모집이 진행 중입니다</small></dd>
+        <dt>오픈</dt><dd>2026년 10월 21일<small>FOUNDERS 100 모집이 진행 중입니다</small></dd>
       </dl>
     </div>
   </div>
@@ -933,7 +933,7 @@ document.getElementById('gateForm').addEventListener('submit',e=>{
   e.preventDefault();
   const input=document.getElementById('code'), v=input.value.trim();
   const area=document.getElementById('membersArea'), note=document.getElementById('gateNote');
-  if(v==='1015'){area.classList.add('open');note.textContent='환영합니다 — 아모르파티의 안쪽입니다.';}
+  if(v==='1021'||v==='1015') /* 옛 코드를 안내받은 분도 들어올 수 있게 둘 다 받는다 */{area.classList.add('open');note.textContent='환영합니다 — 아모르파티의 안쪽입니다.';}
   else{
     note.textContent='코드가 맞지 않습니다. 멤버십 안내는 카카오톡 채널로 문의해 주세요.';
     input.classList.remove('shake'); void input.offsetWidth; input.classList.add('shake');
