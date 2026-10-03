@@ -1202,6 +1202,10 @@ const CAFE = { lat: 37.4825932, lng: 126.9828199, name: "카페 아모르파티"
   sdk.onload = () => {
     try{
       kakao.maps.load(() => {
+        /* 🔴 컨테이너를 먼저 보이게 한 뒤 지도를 만든다.
+           hidden 상태에서 생성하면 크기가 0 으로 잡혀 타일이 어긋나고 마커가 안 보인다.
+           보이게 한 뒤에도 relayout() + setCenter() 로 한 번 더 맞춘다. */
+        show();
         const pos = new kakao.maps.LatLng(CAFE.lat, CAFE.lng);
         const map = new kakao.maps.Map(box, { center: pos, level: 3 });
         new kakao.maps.Marker({ map, position: pos });
@@ -1209,7 +1213,7 @@ const CAFE = { lat: 37.4825932, lng: 126.9828199, name: "카페 아모르파티"
           '<div style="padding:5px 10px;background:#241D12;color:#EFE6D6;font:600 12px/1.4 \'Noto Sans KR\',sans-serif;'
           + 'border-radius:2px;white-space:nowrap">' + CAFE.name + '</div>' });
         map.setZoomable(false);                // 페이지 스크롤이 지도에 먹히지 않게(모바일)
-        show();
+        requestAnimationFrame(() => { map.relayout(); map.setCenter(pos); });
       });
     }catch(e){ fail(); }
   };
