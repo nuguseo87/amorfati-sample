@@ -39,12 +39,13 @@
  "geo":{"@type":"GeoCoordinates","latitude":37.4825932,"longitude":126.9828199},
  "hasMap":"https://map.kakao.com/link/map/%EC%B9%B4%ED%8E%98%20%EC%95%84%EB%AA%A8%EB%A5%B4%ED%8C%8C%ED%8B%B0,37.4825932,126.9828199",
  "servesCuisine":["한식","일식"],
- "foundingDate":"2026-10-15",
- "sameAs":["http://pf.kakao.com/_MhGaX"],
+ "foundingDate":"2026-10-21",
+ "sameAs":["https://pf.kakao.com/_MhGaX"],
  "openingHoursSpecification":[
   {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"07:00","closes":"10:00","description":"아침의 모임"},
   {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"10:00","closes":"17:00","description":"낮의 카페"},
-  {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"23:59","description":"저녁과 밤의 카페"}]}
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"20:00","description":"저녁 식사"},
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"20:00","closes":"23:59","description":"밤의 카페"}]}
 </script>
 <title>AMOR FATI — 생각과 대화로 사람과 만나는 카페</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1013,7 +1014,7 @@ document.getElementById('gateForm').addEventListener('submit',e=>{
         </div>
         <div class="fld" id="r-agree-f">
           <label style="display:flex;gap:9px;align-items:flex-start;cursor:pointer;letter-spacing:0">
-            <input type="checkbox" id="r-agree" style="width:auto;margin-top:3px">
+            <input type="checkbox" id="r-agree" name="agree" style="width:auto;margin-top:3px">
             <span style="font-size:12.5px;line-height:1.65;color:var(--fg-soft)">
               예약 상담을 위해 성함·연락처·예약정보 수집에 동의합니다. 상담 종료 후 파기합니다. <i style="color:var(--accent);font-style:normal">*</i></span>
           </label>
@@ -1309,6 +1310,16 @@ const RESERVE_TEL      = "02-885-2942";
     }finally{
       submit.disabled = false; submit.textContent = '문의 보내기';
     }
+  });
+})();
+</script>
+<script>
+/* 🔴 카카오톡 채널 /chat 은 앱으로 넘기는 중계 페이지라 PC 브라우저에는 채팅창이 없다.
+   터치 기기만 /chat 으로 보내고, 데스크톱은 채널 홈으로 보낸다. */
+(function(){
+  if (matchMedia('(pointer: coarse)').matches) return;       // 폰·태블릿은 그대로
+  document.querySelectorAll('a[href*="pf.kakao.com"]').forEach(function(a){
+    a.href = a.href.replace(/\/chat\/?$/, '');
   });
 })();
 </script>
