@@ -45,7 +45,7 @@
   {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"07:00","closes":"10:00","description":"아침의 모임"},
   {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"10:00","closes":"17:00","description":"낮의 카페"},
   {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"20:00","description":"저녁 식사"},
-  {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"20:00","closes":"23:59","description":"밤의 카페"}]}
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"20:00","closes":"01:30","description":"밤의 카페"}]}
 </script>
 <title>AMOR FATI — 생각과 대화로 사람과 만나는 카페</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -589,7 +589,7 @@ html[data-mode="night"] .kmap{filter:saturate(.82) brightness(.82)}
     <div class="cell"><div class="t">07:00</div><div class="l d">아침의 모임이 열립니다</div><div class="l n">주제별 조찬 모임</div></div>
     <div class="cell"><div class="t">10:00</div><div class="l d">지식의 낮이 흐릅니다</div><div class="l n">포럼 · 북토크 · 점심</div></div>
     <div class="cell"><div class="t">18:00</div><div class="l d">저녁 식사와 함께</div><div class="l n">단체 모임 · 회식</div></div>
-    <div class="cell"><div class="t">20:00</div><div class="l d">밤의 대화가 시작됩니다</div><div class="l n">드링크와 대화 · 24시까지</div></div>
+    <div class="cell"><div class="t">20:00</div><div class="l d">밤의 대화가 시작됩니다</div><div class="l n">드링크와 대화 · 새벽 1시 30분까지</div></div>
   </div>
 </div>
 
@@ -665,7 +665,7 @@ html[data-mode="night"] .kmap{filter:saturate(.82) brightness(.82)}
     <div class="nightline stagger">
       <div class="nrow"><span class="time">18:00 – 20:00</span><span class="name latin">FOOD &amp; TALK<small class="ui">가족 · 커뮤니티 · 단체 회식 · 연어 &amp; 육회</small></span></div>
       <div class="nrow"><span class="time">20:00 – 22:00</span><span class="name latin">DRINK &amp; TALK<small class="ui">드링크와 함께하는 대화</small></span></div>
-      <div class="nrow"><span class="time">22:00 – 24:00</span><span class="name latin">AMOR FATI SOCIAL NIGHT<small class="ui">사람과 이야기가 섞이는 시간</small></span></div>
+      <div class="nrow"><span class="time">22:00 – 01:30</span><span class="name latin">AMOR FATI SOCIAL NIGHT<small class="ui">사람과 이야기가 섞이는 시간</small></span></div>
     </div>
     <div class="sig stagger">
       <div class="card"><div class="nm">AMOR FATI GOLD</div><div class="ds">금빛의 시그니처 드링크. 사진 한 장으로 기억되는 잔.</div></div>
@@ -846,7 +846,7 @@ html[data-mode="night"] .kmap{filter:saturate(.82) brightness(.82)}
         <dt>아침의 모임</dt><dd>07:00 – 10:00<small>주제별 조찬 모임 · 온라인 예약</small></dd>
         <dt>낮의 카페</dt><dd>10:00 – 17:00<small>포럼 · 북토크 · 점심</small></dd>
         <dt>저녁 식사</dt><dd>18:00 – 20:00<small>가족 · 커뮤니티 · 단체 회식 · 연어 &amp; 육회</small></dd>
-        <dt>밤의 카페</dt><dd>20:00 – 24:00<small>드링크와 대화 · 단체 모임</small></dd>
+        <dt>밤의 카페</dt><dd>20:00 – 01:30<small>드링크와 대화 · 단체 모임</small></dd>
         <dt>문의</dt><dd><a href="tel:028852942" style="color:var(--accent)">02-885-2942</a><small>카카오톡 채널로도 문의하실 수 있습니다</small></dd>
         <dt>오픈</dt><dd>2026년 10월 21일<small>FOUNDERS 100 모집이 진행 중입니다</small></dd>
       </dl>
@@ -988,7 +988,7 @@ document.getElementById('gateForm').addEventListener('submit',e=>{
               <option>조찬 07:00–10:00</option>
               <option>낮 10:00–17:00</option>
               <option>저녁 18:00–20:00</option>
-              <option>밤 20:00–24:00</option>
+              <option>밤 20:00–01:30</option>
             </select>
             <div class="err">시간대를 선택해 주세요.</div>
           </div>
