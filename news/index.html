@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>모임소식 — 카페 아모르파티</title>
+<meta name="description" content="카페 아모르파티에서 열린 모임과 행사 기록입니다.">
+<meta property="og:title" content="모임소식 — 카페 아모르파티">
+<meta property="og:description" content="카페 아모르파티에서 열린 모임과 행사 기록입니다.">
+<meta property="og:url" content="https://www.amorfaticafe.net/news/">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#100C07; --fg:#EFE6D6; --soft:#AE9F87; --gold:#D9A65A; --goldl:#E8C487;
+    --line:rgba(239,230,214,.14); --card:#191309;
+    --f-latin:'Marcellus',serif; --f-head:'Noto Serif KR',serif; --f-body:'Noto Sans KR',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-weight:300;
+       line-height:1.8;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+
+  header{padding:52px 0 34px;text-align:center;border-bottom:1px solid var(--line)}
+  .mark{font-family:var(--f-latin);font-size:25px;letter-spacing:.3em;color:var(--goldl)}
+  .rule{width:38px;height:1px;background:var(--gold);margin:17px auto 15px}
+  .kicker{font-size:12px;letter-spacing:.22em;color:var(--soft)}
+  .home{display:inline-block;margin-top:20px;font-size:12.5px;color:var(--soft);
+        border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+  .home:hover{color:var(--gold);border-color:var(--gold)}
+
+  .lead{padding:42px 0 8px;text-align:center}
+  .lead h1{font-family:var(--f-head);font-weight:600;font-size:27px;letter-spacing:-.01em}
+  .lead p{margin-top:14px;font-size:14.5px;color:var(--soft)}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:38px 0 10px}
+  @media(max-width:860px){ .grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:560px){ .grid{grid-template-columns:1fr;gap:20px} .lead h1{font-size:23px} }
+
+  .card{background:var(--card);border:1px solid var(--line);display:block;
+        transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s}
+  .card:hover{transform:translateY(-6px);border-color:var(--gold)}
+  .thumb{aspect-ratio:4/3;background:#0B0805 center/cover no-repeat;border-bottom:1px solid var(--line)}
+  .meta{padding:17px 18px 20px}
+  .cat{display:inline-block;font-size:10.5px;letter-spacing:.12em;color:#1A130A;
+       background:var(--gold);padding:3px 9px;border-radius:2px}
+  .ttl{margin-top:11px;font-family:var(--f-head);font-weight:600;font-size:17px;line-height:1.5}
+  .dt{margin-top:8px;font-family:var(--f-latin);font-size:12.5px;letter-spacing:.07em;color:var(--gold)}
+  .sum{margin-top:10px;font-size:13px;color:var(--soft);line-height:1.75;
+       display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+  .empty{padding:70px 0;text-align:center;color:var(--soft);font-size:14.5px}
+
+  footer{margin-top:48px;border-top:1px solid var(--line);padding:26px 0 56px;
+         text-align:center;font-size:13px;color:var(--soft);line-height:1.9}
+  footer b{color:var(--fg);font-weight:500}
+  footer a.site{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mark">AMOR FATI</div>
+  <div class="rule"></div>
+  <div class="kicker">소식</div>
+  <a class="home" href="/">← 홈으로</a>
+</header>
+
+<div class="wrap">
+  <div class="lead">
+    <h1>모임소식</h1>
+    <p>카페 아모르파티에서 열린 모임과 행사 기록입니다.</p>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>아직 등록된 소식이 없습니다.</div>
+</div>
+
+<footer>
+  <b>카페 아모르파티</b><br>
+  서울 서초구 방배천로 68 지하 1층 · 02-885-2942<br>
+  <a class="site" href="/">amorfaticafe.net</a>
+</footer>
+
+<script>
+/* 소식 목록 — news/posts.json 한 곳만 고치면 이 페이지는 그대로 둬도 된다.
+   새 글 등록은 tools/new-post.mjs 가 폴더 생성과 posts.json 추가를 같이 한다. */
+(function(){
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+  const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const fmt = d => {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d||'');
+    return m ? `${m[1]}. ${m[2]}. ${m[3]}` : esc(d||'');
+  };
+
+  fetch('posts.json', {cache:'no-cache'})
+    .then(r => { if(!r.ok) throw new Error('http-'+r.status); return r.json(); })
+    .then(list => {
+      if(!Array.isArray(list) || !list.length){ empty.hidden = false; return; }
+      list
+        .filter(p => p && p.slug && !p.draft)
+        .sort((a,b) => String(b.date||'').localeCompare(String(a.date||'')))
+        .forEach(p => {
+          const a = document.createElement('a');
+          a.className = 'card';
+          a.href = encodeURIComponent(p.slug) + '/';
+          const cover = p.cover ? `${encodeURIComponent(p.slug)}/${encodeURIComponent(p.cover)}` : '';
+          a.innerHTML =
+            `<div class="thumb"${cover?` style="background-image:url('${cover}')"`:''}></div>
+             <div class="meta">
+               ${p.category?`<span class="cat">${esc(p.category)}</span>`:''}
+               <div class="ttl">${esc(p.title)}</div>
+               <div class="dt">${fmt(p.date)}</div>
+               ${p.summary?`<div class="sum">${esc(p.summary)}</div>`:''}
+             </div>`;
+          grid.appendChild(a);
+        });
+      if(!grid.children.length) empty.hidden = false;
+    })
+    .catch(() => {
+      empty.textContent = '소식을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';
+      empty.hidden = false;
+    });
+})();
+</script>
+
+</body>
+</html>

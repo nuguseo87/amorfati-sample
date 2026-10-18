@@ -119,7 +119,10 @@ nav a{color:var(--fg-soft);position:relative;transition:color .3s}
 nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--accent);transition:width .35s cubic-bezier(.22,1,.36,1)}
 nav a:hover{color:var(--accent)}
 nav a:hover::after{width:100%}
-@media(max-width:760px){nav{display:none}}
+nav a.news{color:var(--accent)}
+nav a.news::after{background:var(--accent)}
+/* 🔴 10-19 — 모바일에서 nav 를 통째로 숨기고 있었다. 모임소식만 남긴다(홍회장 지시: 상단 노출). */
+@media(max-width:760px){nav a:not(.news){display:none}nav{gap:0}}
 .mode-toggle{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;
   font-family:'Noto Sans KR',sans-serif;font-size:12px;letter-spacing:.12em;color:var(--fg-soft);background:none;border:none}
 .mode-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:99px}
@@ -542,6 +545,7 @@ html[data-mode="night"] .kmap{filter:saturate(.82) brightness(.82)}
     <a href="#members">멤버십</a>
     <a href="#gate">MEMBERS ONLY</a>
     <a href="#loc">오시는 길</a>
+    <a class="news" href="/news/">모임소식</a>
   </nav>
   <button class="mode-toggle" id="toggle" aria-label="낮/밤 전환">
     <span class="mode-label-day">낮</span>
