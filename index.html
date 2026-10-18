@@ -411,6 +411,24 @@ html[data-mode="night"] .herologo{filter:drop-shadow(0 0 7px rgba(14,10,6,.62))}
 /* ── 2026-09-09 FOUNDERS 100 단일화 + 신청 폼 ── */
 .tiers.solo{grid-template-columns:minmax(0,420px);justify-content:center}
 .tier .prnote{font-size:12px;color:var(--fg-soft);margin:-12px 0 18px}
+/* ── 2026-10-18 FOUNDERS 100 회비 입금 계좌 (홍회장 지시) ──
+   🔴 모달(#applyModal)은 여는 트리거가 없는 죽은 코드이고 /api/apply 는 GitHub Pages 에서 405 다.
+      완료화면에만 두면 아무도 못 보므로 섹션에 상시 노출한다. */
+.pay{max-width:420px;margin:24px auto 0;border:1px solid var(--line);background:var(--card);
+     padding:22px 24px;text-align:left}
+.pay .pt{font-family:'Marcellus',serif;letter-spacing:.16em;font-size:12px;color:var(--accent);margin-bottom:14px}
+.pay dl{display:grid;grid-template-columns:64px 1fr;gap:9px 12px;align-items:baseline}
+.pay dt{font-family:'Noto Sans KR',sans-serif;font-weight:300;font-size:12px;color:var(--fg-soft)}
+.pay dd{font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:500;word-break:keep-all}
+.pay dd small{font-weight:300;font-size:12px;color:var(--fg-soft)}
+.pay .acc{font-size:17.5px;font-weight:700;letter-spacing:.01em}
+.pay .copy{margin-top:18px;width:100%;padding:13px;border:1px solid var(--accent);background:transparent;
+     color:var(--accent);font-family:'Noto Sans KR',sans-serif;font-size:13px;letter-spacing:.02em;
+     cursor:pointer;transition:background .25s,color .25s}
+.pay .copy:hover,.pay .copy.ok{background:var(--accent);color:#1A130A}
+.pay .hint{margin-top:13px;font-family:'Noto Sans KR',sans-serif;font-weight:300;font-size:11.5px;
+     color:var(--fg-soft);line-height:1.75}
+@media(max-width:640px){.pay{padding:18px 16px}.pay dl{grid-template-columns:56px 1fr}.pay .acc{font-size:16px}}
 .tier.f .pr{color:var(--accent)}
 
 .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
@@ -720,8 +738,46 @@ html[data-mode="night"] .kmap{filter:saturate(.82) brightness(.82)}
     <a class="cta ui kk-cta" id="applyKakao" href="https://pf.kakao.com/_MhGaX/chat" target="_blank" rel="noopener"
        aria-label="FOUNDERS 100 카카오톡으로 신청하기 (새 창)"><svg class="kk-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.2C6.6 3.2 2.2 6.6 2.2 10.8c0 2.7 1.8 5 4.5 6.4l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.5.1 5.4 0 9.8-3.4 9.8-7.6S17.4 3.2 12 3.2z"/></svg>FOUNDERS 100 신청하기</a>
     <div class="note ui" style="margin-top:14px">카카오톡 채널로 신청을 받습니다. 확인 후 개별로 안내드립니다.</div>
+
+    <div class="pay reveal">
+      <div class="pt">회비 입금 계좌</div>
+      <dl>
+        <dt>회비</dt><dd>100만 원 <small>· 2년 회원</small></dd>
+        <dt>은행</dt><dd>신한은행</dd>
+        <dt>계좌번호</dt><dd class="acc">140-011-894157</dd>
+        <dt>예금주</dt><dd>사회공헌사업단</dd>
+      </dl>
+      <button type="button" class="copy" id="copyAcc"
+              data-acc="신한은행 140-011-894157 사회공헌사업단">계좌번호 복사</button>
+      <div class="hint">신청하신 <b>본인 성함</b>으로 입금해 주시면 확인이 빠릅니다.<br>
+        입금 후 카카오톡 채널로 알려주시면 멤버 등록을 진행해 드립니다.</div>
+    </div>
   </div>
 </section>
+
+<script>
+/* 계좌번호 복사 — clipboard API 가 막히는 환경(비보안 컨텍스트·구형 사파리)을 위해 폴백을 둔다 */
+(function(){
+  const b = document.getElementById('copyAcc'); if(!b) return;
+  b.addEventListener('click', async () => {
+    const t = b.dataset.acc;
+    let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; }
+    catch(_){
+      const ta = document.createElement('textarea');
+      ta.value = t; ta.setAttribute('readonly','');
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      try { ok = document.execCommand('copy'); } catch(e){}
+      ta.remove();
+    }
+    const prev = b.textContent;
+    b.textContent = ok ? '복사되었습니다' : '140-011-894157';
+    b.classList.add('ok');
+    setTimeout(() => { b.textContent = prev; b.classList.remove('ok'); }, 1900);
+  });
+})();
+</script>
 
 <!-- MEMBERS ONLY GATE -->
 <section class="gate" id="gate">
